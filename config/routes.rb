@@ -5,5 +5,5 @@ Rails.application.routes.draw do
       resources :users, except: [:new, :edit]
     end
   end
-  root "user#index"
+  root "api/v1/users#index"
 end
