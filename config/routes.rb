@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :lefts, except: [:new, :edit]
-      resources :users, except: [:new, :edit]
+      resources :lefts, except: [:edit]
+      resources :users, except: [:edit]
     end
   end
   root "api/v1/users#index"
