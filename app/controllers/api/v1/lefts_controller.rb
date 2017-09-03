@@ -49,7 +49,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def left_params
-          params.require(:left).permit(:user_id)
+          params.require(:left).permit(:user_id, :duration)
         end
     end
   end
