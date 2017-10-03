@@ -19,11 +19,10 @@ module Api
 
       # POST /lefts
       def create
-        binding.pry
         @left = Left.new(left_params)
 
         if @left.save
-          render json: @left, status: :created, location: @left
+          render json: @left, status: :created
         else
           render json: @left.errors, status: :unprocessable_entity
         end
