@@ -1,3 +1,5 @@
+require 'pry'
+
 module Api
   module V1
     class UsersController < ApplicationController
@@ -5,9 +7,12 @@ module Api
 
       # GET /users
       def index
+
+
         @users = User.all
 
         render json: User.all, include: ['lefts']
+        # binding.pry
       end
 
       # GET /users/1

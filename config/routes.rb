@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     end
   end
   root "api/v1/users#index"
+  match '*path', via: [:options], to: lambda {|_| [204, { 'Content-Type' => 'text/plain' }]}
 end

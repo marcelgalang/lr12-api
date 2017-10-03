@@ -1,3 +1,4 @@
+require 'pry'
 module Api
   module V1
 
@@ -18,6 +19,7 @@ module Api
 
       # POST /lefts
       def create
+        binding.pry
         @left = Left.new(left_params)
 
         if @left.save
@@ -49,6 +51,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def left_params
+
           params.require(:left).permit(:user_id, :duration)
         end
     end
