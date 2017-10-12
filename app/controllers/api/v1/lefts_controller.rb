@@ -1,7 +1,6 @@
 require 'pry'
 module Api
   module V1
-
     class LeftsController < ApplicationController
       before_action :set_left, only: [:show, :update, :destroy]
 

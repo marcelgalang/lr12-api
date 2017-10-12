@@ -2,7 +2,6 @@
 require 'pry'
 module Api
   module V1
-
     class OnesController < ApplicationController
       before_action :set_one, only: [:show, :update, :destroy]
 

@@ -11,13 +11,13 @@ module Api
 
         @users = User.all
 
-        render json: User.all, include: ['lefts']
+        render json: User.all, include: ['lefts', 'rights', 'ones', 'twos']
         # binding.pry
       end
 
       # GET /users/1
       def show
-        render json: @user, include: ['lefts']
+        render json: @user, include: ['lefts', 'rights', 'ones', 'twos']
       end
 
       # POST /users
