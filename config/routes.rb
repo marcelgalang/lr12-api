@@ -1,26 +1,12 @@
 Rails.application.routes.draw do
-  resources :rights
-  resources :twos
-  resources :ones
-  namespace :api do
-    namespace :v1 do
-      resources :rights
-    end
-  end
-  namespace :api do
-    namespace :v1 do
-      resources :twos
-    end
-  end
-  namespace :api do
-    namespace :v1 do
-      resources :ones
-    end
-  end
+
   namespace :api do
     namespace :v1 do
       resources :lefts, except: [:edit]
       resources :users, except: [:edit]
+      resources :rights, except: [:edit]
+      resources :ones, except: [:edit]
+      resources :twos, except: [:edit]
     end
   end
   root "api/v1/users#index"

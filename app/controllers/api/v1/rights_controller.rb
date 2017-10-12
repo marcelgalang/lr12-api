@@ -54,5 +54,4 @@ module Api
         end
     end
   end
->>>>>>> Add scaffoldds of one, two and right
 end
