@@ -10,25 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171012142234) do
+ActiveRecord::Schema.define(version: 20171012203853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "api_v1_ones", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "api_v1_rights", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "api_v1_twos", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "lefts", force: :cascade do |t|
     t.integer  "user_id"
@@ -69,8 +54,6 @@ ActiveRecord::Schema.define(version: 20171012142234) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "token"
-    t.index ["token"], name: "index_users_on_token", using: :btree
   end
 
   add_foreign_key "lefts", "users"
