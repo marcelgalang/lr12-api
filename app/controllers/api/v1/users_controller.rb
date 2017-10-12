@@ -8,7 +8,6 @@ module Api
       # GET /users
       def index
 
-
         @users = User.all
 
         render json: User.all, include: ['lefts', 'rights', 'ones', 'twos']
