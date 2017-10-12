@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      resources :rights
+    end
+  end
+  namespace :api do
+    namespace :v1 do
+      resources :twos
+    end
+  end
+  namespace :api do
+    namespace :v1 do
+      resources :ones
+    end
+  end
+  namespace :api do
+    namespace :v1 do
       resources :lefts, except: [:edit]
       resources :users, except: [:edit]
     end
