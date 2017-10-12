@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730161656) do
+ActiveRecord::Schema.define(version: 20171012135333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,12 +25,41 @@ ActiveRecord::Schema.define(version: 20170730161656) do
     t.index ["user_id"], name: "index_lefts_on_user_id", using: :btree
   end
 
+  create_table "ones", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "count"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_ones_on_user_id", using: :btree
+  end
+
+  create_table "rights", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "count"
+    t.index ["user_id"], name: "index_rights_on_user_id", using: :btree
+  end
+
+  create_table "twos", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "count"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_twos_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "token"
+    t.index ["token"], name: "index_users_on_token", using: :btree
   end
 
   add_foreign_key "lefts", "users"
+  add_foreign_key "ones", "users"
+  add_foreign_key "rights", "users"
+  add_foreign_key "twos", "users"
 end

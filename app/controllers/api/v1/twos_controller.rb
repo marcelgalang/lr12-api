@@ -1,51 +1,59 @@
-class Api::V1::TwosController < ApplicationController
-  before_action :set_api_v1_two, only: [:show, :update, :destroy]
 
-  # GET /api/v1/twos
-  def index
-    @api_v1_twos = Api::V1::Two.all
+require 'pry'
+module Api
+  module V1
+    class TwosController < ApplicationController
+      before_action :set_two, only: [:show, :update, :destroy]
 
-    render json: @api_v1_twos
-  end
+      # GET /twos
+      def index
+        @twos = Two.all
 
-  # GET /api/v1/twos/1
-  def show
-    render json: @api_v1_two
-  end
+        render json: @twos
+      end
 
-  # POST /api/v1/twos
-  def create
-    @api_v1_two = Api::V1::Two.new(api_v1_two_params)
+      # GET /twos/1
+      def show
+        render json: @two
+      end
 
-    if @api_v1_two.save
-      render json: @api_v1_two, status: :created, location: @api_v1_two
-    else
-      render json: @api_v1_two.errors, status: :unprocessable_entity
+      # POST /twos
+      def create
+        @two = Two.new(two_params)
+
+        if @two.save
+          render json: @two, status: :created, location: @two
+        else
+          render json: @two.errors, status: :unprocessable_entity
+        end
+      end
+
+      # PATCH/PUT /twos/1
+      def update
+        if @two.update(two_params)
+          render json: @two
+        else
+          render json: @two.errors, status: :unprocessable_entity
+        end
+      end
+
+      # DELETE /twos/1
+      def destroy
+        @two.destroy
+      end
+
+      private
+        # Use callbacks to share common setup or constraints between actions.
+        def set_two
+          @two = Two.find(params[:id])
+        end
+
+        # Only allow a trusted parameter "white list" through.
+        def two_params
+          params.require(:two).permit(:user_id, :count)
+        end
     end
   end
-
-  # PATCH/PUT /api/v1/twos/1
-  def update
-    if @api_v1_two.update(api_v1_two_params)
-      render json: @api_v1_two
-    else
-      render json: @api_v1_two.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /api/v1/twos/1
-  def destroy
-    @api_v1_two.destroy
-  end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_api_v1_two
-      @api_v1_two = Api::V1::Two.find(params[:id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def api_v1_two_params
-      params.fetch(:api_v1_two, {})
-    end
 end
+
+>>>>>>> Add scaffoldds of one, two and right

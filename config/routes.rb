@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :rights
+  resources :twos
+  resources :ones
   namespace :api do
     namespace :v1 do
       resources :rights
