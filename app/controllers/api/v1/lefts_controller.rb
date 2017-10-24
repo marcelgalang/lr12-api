@@ -3,6 +3,7 @@ module Api
   module V1
     class LeftsController < ApplicationController
       before_action :set_left, only: [:show, :update, :destroy]
+      before_action :authenticate_user
 
       # GET /lefts
       def index

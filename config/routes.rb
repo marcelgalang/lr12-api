@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  post 'login' => 'sessions#create'
+  post 'user_token' => 'user_token#create'
   namespace :api do
     namespace :v1 do
       resources :lefts, except: [:edit]

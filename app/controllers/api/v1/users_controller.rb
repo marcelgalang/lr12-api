@@ -4,6 +4,7 @@ module Api
   module V1
     class UsersController < ApplicationController
       before_action :set_user, only: [:show, :update, :destroy]
+      before_action :authenticate_user
 
       # GET /users
       def index
@@ -21,8 +22,9 @@ module Api
 
       # POST /users
       def create
+        binding.pry
         @user = User.new(user_params)
-
+        binding.pry
         if @user.save
           render json: @user, status: :created, location: @user
         else
