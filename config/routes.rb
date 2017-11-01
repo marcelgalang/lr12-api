@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   post 'user_token' => 'user_token#create'
+  get 'get_user' => 'user_token#get_user'
+  get 'login_user' => 'session#get_user'
   namespace :api do
     namespace :v1 do
       resources :lefts, except: [:edit]

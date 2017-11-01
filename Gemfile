@@ -7,6 +7,7 @@ end
 gem 'knock'
 gem 'bcrypt'
 gem 'jwt'
+gem 'figaro'
 gem 'rails_12factor'
 gem 'foreman', '~> 0.82.0'
 gem 'active_model_serializers', '~> 0.10.6'

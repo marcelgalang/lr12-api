@@ -4,7 +4,7 @@ module Api
   module V1
     class UsersController < ApplicationController
       before_action :set_user, only: [:show, :update, :destroy]
-      before_action :authenticate_user
+      # before_action :authenticate_user
 
       # GET /users
       def index
@@ -17,6 +17,8 @@ module Api
 
       # GET /users/1
       def show
+        current_user
+        binding.pry
         render json: @user, include: ['lefts', 'rights', 'ones', 'twos']
       end
 
@@ -49,7 +51,9 @@ module Api
       private
         # Use callbacks to share common setup or constraints between actions.
         def set_user
-          @user = User.find(params[:id])
+          # @user = User.find(params[:id])
+          @user = User.find_by_email(params[:email])
+
         end
 
         # Only allow a trusted parameter "white list" through.
