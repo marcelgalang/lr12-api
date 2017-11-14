@@ -1,4 +1,5 @@
 require 'jwt'
+require 'pry'
 
 class Auth
   ALGORITHM = 'HS256'
