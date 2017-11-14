@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  post 'login' => 'sessions#create'
 
   namespace :api do
     namespace :v1 do
